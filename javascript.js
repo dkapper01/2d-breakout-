@@ -21,15 +21,14 @@ function draw() {
 	x += dx;
 	y += dy; 
 
-	if(x + dx > canvas.width || x + dx < 0) {
-    dx = -dx;
-}
+	if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+    	dx = -dx;
+	}
 
-if(y + dy > canvas.height || y + dy < 0) {
-    dy = -dy;
+	if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
+	    dy = -dy;
+	}
 }
-}
-
 setInterval(draw, 10);
 
 
