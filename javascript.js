@@ -35,6 +35,13 @@ function draw() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height); 
 	drawBall(); 
 	drawPaddle();
+	
+	if(rightPressed && paddleX < canvas.width-paddleWidth) {
+		paddleX += 7; 
+	} else if(leftPressed && paddleX > 0) {
+		paddleX -= 7; 
+	}
+
 	x += dx;
 	y += dy; 
 
@@ -57,10 +64,11 @@ function keyDownHandler(event) {
 	}
 }
 function keyUpHandler(event) {
-	if(event.keyCode == 37) {
+	if(event.keyCode == 39) {
 		rightPressed = false; 
-	} else if(event.keyCode == 39) {
-		rightPressed = false; 
+	} else if(event.keyCode == 37) {
+		leftPressed = false; 
+	}
 }
 setInterval(draw, 10);
 
